@@ -58,4 +58,4 @@ python SimpleReceiver.py
 
 2. **Configure Client:** Update your `ServerUploader` base URL to point to your development laptop's local IPv4 address (e.g., `http://192.168.x.x:5000/data`).
 3. **Verify:** Check `~/sensor_data.csv` on your server machine to confirm incoming records.
-
+4. **Receiver Code:** Stored in the HealthyPi Receiver file.
