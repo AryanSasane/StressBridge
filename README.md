@@ -97,6 +97,7 @@ python ReceiverApp.py
 
 ### B. Client Configuration (The Android App)
 
+1. **Upload the Code:** Upload the entire code onto your phone using Android Studio, and use the controls given there to connect with the smartwatch(enter the security code that appears on the smartwatch during bluetooth pairing) and your laptop.
 1. **Find your Laptop IP:** On your laptop, open your command prompt/terminal and run `ipconfig` (Windows) or `ifconfig` (Linux/macOS) to find your Wi-Fi IPv4 address, it will change everytime you change WiFi routers.
 2. **Update the Client:** In your Android project, locate `ServerUploader.kt`. Update the `client.post` URL to point to your Host IP:
 ```kotlin
