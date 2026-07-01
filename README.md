@@ -59,3 +59,62 @@ python SimpleReceiver.py
 2. **Configure Client:** Update your `ServerUploader` base URL to point to your development laptop's local IPv4 address (e.g., `http://192.168.x.x:5000/data`).
 3. **Verify:** Check `~/sensor_data.csv` on your server machine to confirm incoming records.
 4. **Receiver Code:** Stored in the HealthyPi Receiver file.
+
+
+---
+
+## 5. Local Data Collection Guide
+
+Follow these steps to establish the pipeline between your Android device and your local machine.
+
+Here is the updated **Local Data Collection Guide** for your `README.md`, now tailored for your simpler **Flask** implementation.
+
+---
+
+## 5. Local Data Collection Guide
+
+Follow these steps to establish the pipeline between your Android device and your local machine using the Flask receiver.
+
+### A. Server Setup (The Receiver)
+
+1. **Navigate to the Receiver Folder:** Open your terminal in the directory where your `ReceiverApp.py` is located.
+2. **Install Dependencies:** Ensure you have the `flask` library installed:
+```bash
+pip install flask
+
+```
+
+
+3. **Launch the Server:** Run the Python script directly. This will start the Flask development server, which handles incoming HTTP requests on port 5000:
+```bash
+python ReceiverApp.py
+
+```
+
+
+*The console will indicate the server is running on `http://0.0.0.0:5000`. Your laptop's local IP address (e.g., `192.168.1.5`) is the address your Android device will use to communicate.*
+
+
+### B. Client Configuration (The Android App)
+
+1. **Find your Laptop IP:** On your laptop, open your command prompt/terminal and run `ipconfig` (Windows) or `ifconfig` (Linux/macOS) to find your Wi-Fi IPv4 address.
+2. **Update the Client:** In your Android project, locate `ServerUploader.kt`. Update the `client.post` URL to point to your Host IP:
+```kotlin
+// Replace '192.168.1.5' with your actual machine's local IP
+client.post("http://192.168.1.5:5000/data") { 
+    // ...
+}
+
+```
+
+
+3. **Network Requirements:** Ensure both your Android device and your laptop are connected to the **same Wi-Fi network**. If you are on a restricted network (like a public college Wi-Fi), use a mobile hotspot from your phone and connect your laptop to it to bypass network isolation.
+
+### C. Troubleshooting
+
+* **Connection Timeout:** If the app cannot connect, check your **Windows Firewall** settings. Ensure `python.exe` is granted permission for **Private** and **Public** networks.
+* **Verify Data:** Once the app runs, you should see logs appearing in your server terminal. Verify that the file `~/sensor_data.csv` is being updated by running:
+```bash
+tail -f ~/sensor_data.csv
+
+```
