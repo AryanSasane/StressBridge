@@ -166,8 +166,7 @@ fun AppUI(bleManager: BLEManager, motionManager: MotionSensorManager, serverUplo
 
     LaunchedEffect(key1 = Unit) {
         bleManager.aggregator.recordFlow.collect { record ->
-            val json = """{"timestamp":${record.timestamp},"raw_ppg":${record.rawPpg},"motion":${record.motion},"gsr":${record.gsr}}"""
-
+            val json = """{"timestamp":"${record.timestamp}","raw_ppg":${record.rawPpg},"motion":${record.motion},"gsr":${record.gsr}}"""
             // This now sends the data to your college server
             serverUploader.uploadRecord(json)
         }

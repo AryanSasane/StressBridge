@@ -97,7 +97,7 @@ python ReceiverApp.py
 
 ### B. Client Configuration (The Android App)
 
-1. **Find your Laptop IP:** On your laptop, open your command prompt/terminal and run `ipconfig` (Windows) or `ifconfig` (Linux/macOS) to find your Wi-Fi IPv4 address.
+1. **Find your Laptop IP:** On your laptop, open your command prompt/terminal and run `ipconfig` (Windows) or `ifconfig` (Linux/macOS) to find your Wi-Fi IPv4 address, it will change everytime you change WiFi routers.
 2. **Update the Client:** In your Android project, locate `ServerUploader.kt`. Update the `client.post` URL to point to your Host IP:
 ```kotlin
 // Replace '192.168.1.5' with your actual machine's local IP

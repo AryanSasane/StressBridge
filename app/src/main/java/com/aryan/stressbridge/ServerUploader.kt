@@ -28,7 +28,7 @@ class ServerUploader(val username: String, val password: String) {
     suspend fun uploadRecord(jsonPayload: String) = withContext(Dispatchers.IO) {
         try {
             // REPLACE THIS IP WITH YOUR CURRENT 'ipconfig' IP
-            val response = client.post("http://10.145.124.88:5000/data") {
+            val response = client.post("http://10.145.100.225:5000/data") {
                 contentType(ContentType.Application.Json)
                 setBody(jsonPayload)
             }
